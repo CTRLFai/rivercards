@@ -1,0 +1,115 @@
+/* ===== Trading card faces. All sizes in cqw so a card scales from binder thumb to full view. ===== */
+@property --mx{syntax:'<percentage>';inherits:true;initial-value:50%}
+@property --my{syntax:'<percentage>';inherits:true;initial-value:50%}
+.tcg{container-type:inline-size;position:relative;aspect-ratio:63/88;width:100%;--rx:0deg;--ry:0deg;--hyp:.4;-webkit-tap-highlight-color:transparent;user-select:none}
+.tcg-in{position:absolute;inset:0;transform:perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));transition:transform .35s ease-out;transform-style:preserve-3d}
+.tcg.live .tcg-in{transition:none}
+.face{position:absolute;inset:0;border-radius:4.6cqw;background:#0c0d0f;padding:2.6cqw;box-shadow:0 1.5cqw 4cqw rgb(0 0 0/.55),inset 0 0 0 .5cqw #222;overflow:hidden}
+.frame{position:relative;height:100%;border-radius:2.6cqw;display:flex;flex-direction:column;overflow:hidden}
+.nm{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gems{display:inline-flex;gap:.8cqw;flex:none}
+.gems i{width:4.6cqw;height:4.6cqw;border-radius:50%;background:radial-gradient(circle at 35% 30%,#e9ffff,#18c6d9 45%,#0a5a66);box-shadow:0 0 0 .4cqw #062a30,0 .4cqw .8cqw rgb(0 0 0/.5)}
+.rsym{font-size:4.4cqw;line-height:1;text-shadow:0 0 .6cqw rgb(0 0 0/.6)}
+.rsym.rC{color:#1b1b1b;text-shadow:0 0 .4cqw #fff}.rsym.rU{color:#7d8a94;text-shadow:0 0 .3cqw #fff}.rsym.rR{color:#ffcf4a}.rsym.rL{color:#ff7a1a}.rsym.rS{color:#ffe08a}
+.artwin{position:relative;overflow:hidden}
+.artwin svg,.fa-bg svg,.fa-fg svg{display:block;width:100%;height:100%}
+.info{display:flex;justify-content:space-between;font:600 2.5cqw/1 'Barlow Condensed',sans-serif;color:#d7dde2;padding:1.2cqw 1.6cqw 0;letter-spacing:.05cqw;margin-top:auto}
+
+/* ---- Concept + Asset: classic frame (name + cost bar, art, type line, text box) ---- */
+.t-concept .frame,.t-asset .frame{background:linear-gradient(160deg,#2f8aa3,#15485a 55%,#0d2f3b);padding:2cqw 2cqw 1.4cqw;box-shadow:inset 0 0 0 .5cqw rgb(255 255 255/.12)}
+.t-asset .frame{background:linear-gradient(160deg,#c4cbd0,#7d878e 50%,#4c555b)}
+.t-asset .info{color:#1d2226}
+.namebar,.typeline{display:flex;align-items:center;justify-content:space-between;gap:2cqw;background:linear-gradient(#f4f6f6,#c8d2d6);border-radius:3cqw/50%;padding:1.4cqw 2.6cqw;box-shadow:0 .5cqw 0 rgb(0 0 0/.35),inset 0 .3cqw 0 #fff;color:#111;position:relative;z-index:1}
+.namebar .nm{font:700 6cqw/1.1 'Cinzel',Georgia,serif}
+.t-concept .artwin,.t-asset .artwin{margin:-.6cqw 2cqw 0;aspect-ratio:300/210;border:.8cqw solid #0b1418;box-shadow:inset 0 0 3cqw rgb(0 0 0/.6)}
+.typeline{margin-top:-.6cqw;font:600 4.2cqw/1.1 'Cinzel',Georgia,serif}
+.textbox{margin:1.4cqw 2.6cqw 0;flex:1;background:linear-gradient(#f3efe4,#e2dccb);border-radius:1cqw;padding:2.4cqw 3cqw;color:#18140e;box-shadow:inset 0 0 1.4cqw rgb(120 90 40/.35);display:flex;flex-direction:column;justify-content:center;gap:1cqw}
+.textbox p{margin:0}
+.rules{font:500 4.9cqw/1.3 'Crimson Pro',Georgia,serif}
+.textbox hr{border:0;border-top:.3cqw solid #b9ae95;width:70%;margin:.4cqw auto}
+.flavor{font:italic 400 4.4cqw/1.25 'Crimson Pro',Georgia,serif;opacity:.85}
+
+/* ---- Person: HP header, art with gold rim, two moves, weakness strip ---- */
+.t-person .frame{background:linear-gradient(170deg,#ffe9a8,#e6c260 18%,#c99a35 40%,#e0c27a);padding:2cqw 2.4cqw 1.2cqw;color:#1b1406}
+.ptop{display:flex;align-items:baseline;gap:1.6cqw;padding:0 .6cqw 1cqw}
+.ptop .ptag{font:700 2.6cqw/1 'Barlow Condensed',sans-serif;background:#1b1406;color:#ffe9a8;padding:.6cqw 1.2cqw;border-radius:1cqw;align-self:center}
+.ptop .nm{font:800 6.6cqw/1 'Barlow Condensed',sans-serif;flex:1}
+.hp{font:800 7cqw/1 'Barlow Condensed',sans-serif;color:#b3261e;flex:none}.hp small{font-size:3cqw;margin-right:.4cqw;color:#1b1406}
+.t-person .artwin{aspect-ratio:300/190;border:1cqw solid;border-color:#fff3c4 #a07a20 #7a5a10 #ffe08a;box-shadow:0 .6cqw 1.2cqw rgb(0 0 0/.4)}
+.pstrip{margin:1cqw 3cqw 0;background:linear-gradient(90deg,#a07a20,#ffe9a8,#a07a20);font:600 3cqw/1.6 'Barlow Condensed',sans-serif;text-align:center;border-radius:.6cqw}
+.moves{flex:1;display:flex;flex-direction:column;justify-content:center;gap:1.6cqw;padding:1.4cqw 1cqw}
+.move{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:2cqw;border-bottom:.3cqw solid rgb(0 0 0/.25);padding-bottom:1.2cqw}
+.move .mn{font:800 5cqw/1 'Barlow Condensed',sans-serif}
+.move .dmg{font:800 6cqw/1 'Barlow Condensed',sans-serif}
+.move p{grid-column:1/-1;margin:0;font:500 3.4cqw/1.2 'Crimson Pro',Georgia,serif}
+.pbot{display:grid;grid-template-columns:repeat(3,1fr);gap:1cqw;font:700 3cqw/1.1 'Barlow Condensed',sans-serif;text-align:center}
+.pbot small{display:block;font-size:2.3cqw;font-weight:600;opacity:.7;text-transform:lowercase}
+.pbot .gems i{width:3.2cqw;height:3.2cqw;background:radial-gradient(circle at 35% 30%,#fff,#bbb 50%,#666)}
+.pflavor{margin:1cqw 1cqw 0;font:italic 3cqw/1.2 'Crimson Pro',Georgia,serif;opacity:.8}
+.t-person .info{color:#2a1f08}
+
+/* ---- Threat: dark trap frame, hazard name bar, level pips, tan text box, PWR/RES ---- */
+.t-threat .frame{background:linear-gradient(160deg,#5a141b,#2a070b 60%,#16040a);padding:2.4cqw 2.4cqw 1.2cqw;box-shadow:inset 0 0 0 .5cqw rgb(255 120 100/.15)}
+.ynamebar{display:flex;align-items:center;justify-content:space-between;background:repeating-linear-gradient(-45deg,#1a1a1a 0 2.4cqw,#e0b316 2.4cqw 4.8cqw);padding:.7cqw;border-radius:.8cqw}
+.ynamebar .nm{background:#120406;color:#ffd7cf;font:700 5.8cqw/1.3 'Cinzel',Georgia,serif;padding:0 2cqw;border-radius:.6cqw;flex:1}
+.ynamebar .attr{width:7cqw;height:7cqw;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffb3a0,#c0392b 55%,#5a0d0d);color:#fff;font:800 4.6cqw/7cqw 'Barlow Condensed',sans-serif;text-align:center;margin-left:1cqw;flex:none}
+.lvl{display:flex;justify-content:flex-end;gap:1cqw;padding:1.2cqw 1cqw}
+.lvl i{width:4cqw;height:4cqw;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe1a0,#ff7a1a 50%,#8a2a00);box-shadow:0 0 1cqw #ff7a1a}
+.t-threat .artwin{margin:0 5cqw;aspect-ratio:300/230;border:1cqw solid #0a0a0a;outline:.4cqw solid #8a6a2a}
+.ytext{margin-top:2cqw;flex:1;background:linear-gradient(#e2d3b0,#cdb98e);border:.5cqw solid #6a5020;padding:1.6cqw 2.4cqw;color:#1a1208;display:flex;flex-direction:column;gap:1cqw;font:500 4.5cqw/1.25 'Crimson Pro',Georgia,serif}
+.ytext p{margin:0}.ytype{font-weight:700;display:flex;justify-content:space-between}
+.weakto{font-size:4cqw}
+.ystats{margin-top:auto;border-top:.3cqw solid #1a1208;display:flex;justify-content:flex-end;gap:4cqw;font:700 4cqw/1.4 'Barlow Condensed',sans-serif}
+.t-threat .info{color:#e8c7c0}
+
+/* ---- Full art (Legendary + Signature): art fills the card, subject breaks out of the top ---- */
+.fullart .face{overflow:visible;background:transparent;padding:0;box-shadow:none}
+.fullart .frame{position:absolute;inset:0;border-radius:4.6cqw;overflow:visible;padding:0}
+.fa-bg{position:absolute;inset:0;border-radius:4.6cqw;overflow:hidden;box-shadow:0 1.5cqw 4cqw rgb(0 0 0/.55),inset 0 0 0 1.2cqw #0b0d0f}
+.fa-fg{position:absolute;left:0;right:0;top:-9%;height:100%;pointer-events:none;z-index:2;transform:translateZ(30px)}
+.fa-top{position:relative;z-index:3;margin:3cqw;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(90deg,rgb(0 0 0/.65),rgb(0 0 0/.15));border-radius:2cqw;padding:1.4cqw 3cqw;color:#fff}
+.fa-top .nm{font:800 6.6cqw/1.1 'Barlow Condensed',sans-serif;text-shadow:0 .4cqw 1cqw #000}
+.fa-top .hp{color:#ff8a7a}.fa-top .hp small{color:#fff}
+.fa-top .sig{font-size:7cqw;color:#ffe08a}
+.fa-panel{position:absolute;z-index:3;left:3cqw;right:3cqw;bottom:7cqw;background:rgb(6 12 16/.62);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);border:.4cqw solid rgb(255 255 255/.25);border-radius:2.6cqw;padding:2cqw 3cqw;color:#f1f5f7;display:flex;flex-direction:column;gap:1.2cqw}
+.fa-type{font:700 3.4cqw/1 'Barlow Condensed',sans-serif;display:flex;gap:1.6cqw;align-items:center;opacity:.9}
+.fa-panel .move{border-color:rgb(255 255 255/.2)}
+.fa-panel .flavor{margin:0;font-size:3.4cqw}
+.fa-panel .rules{margin:0}
+.fullart .info{position:absolute;z-index:3;left:2cqw;right:2cqw;bottom:2.4cqw}
+.r-S .fa-bg{box-shadow:0 1.5cqw 4cqw rgb(0 0 0/.55),inset 0 0 0 1.2cqw #8a5a0e,inset 0 0 0 1.8cqw #ffe08a}
+
+/* ---- Light: glare everywhere, holo by rarity and foil ---- */
+.holo,.glare{position:absolute;inset:0;border-radius:4.6cqw;pointer-events:none;z-index:4}
+.glare{background:radial-gradient(farthest-corner circle at var(--mx) var(--my),rgb(255 255 255/.55) 0%,rgb(255 255 255/.1) 25%,transparent 55%);mix-blend-mode:overlay;opacity:calc(.35 + var(--hyp)*.5)}
+.holo{display:none}
+/* Rare: holo art window (classic holo rare) */
+.r-R .artwin::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(110deg,#ff6b6b 0%,#ffd93d 4%,#6bffb0 8%,#5cc8ff 12%,#c98bff 16%,#ff6b6b 20%);background-size:400% 400%;background-position:var(--mx) var(--my);mix-blend-mode:color-dodge;opacity:.2;filter:saturate(1.2);-webkit-mask:radial-gradient(farthest-corner circle at var(--mx) var(--my),#000 10%,rgb(0 0 0/.35) 60%);mask:radial-gradient(farthest-corner circle at var(--mx) var(--my),#000 10%,rgb(0 0 0/.35) 60%)}
+.r-R .artwin::before{content:'';position:absolute;inset:0;z-index:1;background:repeating-linear-gradient(0deg,transparent 0 3px,rgb(255 255 255/.1) 3px 4px);mix-blend-mode:overlay}
+/* Foil (any rarity): reverse holo across the whole card */
+.foil .holo{display:block;background:repeating-linear-gradient(125deg,#ff6b6b 0%,#ffd93d 5%,#6bffb0 10%,#5cc8ff 15%,#c98bff 20%,#ff6b6b 25%),repeating-linear-gradient(45deg,transparent 0 2px,rgb(255 255 255/.25) 2px 3px);background-size:300% 300%,auto;background-position:var(--mx) var(--my),0 0;mix-blend-mode:color-dodge;opacity:.26}
+/* Legendary: cosmos foil */
+.r-L .holo{display:block;background:radial-gradient(circle at 20% 30%,rgb(255 255 255/.9) 0 .4cqw,transparent .6cqw),radial-gradient(circle at 70% 60%,rgb(255 255 255/.8) 0 .3cqw,transparent .5cqw),radial-gradient(circle at 40% 80%,rgb(255 255 255/.8) 0 .3cqw,transparent .5cqw),repeating-linear-gradient(110deg,#ff6b6b 0%,#ffd93d 5%,#6bffb0 10%,#5cc8ff 15%,#c98bff 20%,#ff6b6b 25%);background-size:9cqw 9cqw,13cqw 13cqw,11cqw 11cqw,400% 400%;background-position:0 0,0 0,0 0,var(--mx) var(--my);mix-blend-mode:color-dodge;opacity:.28}
+/* Signature: etched gold */
+.r-S .holo{display:block;background:repeating-linear-gradient(60deg,rgb(255 230 140/.0) 0 1.2cqw,rgb(255 230 140/.5) 1.2cqw 1.6cqw),linear-gradient(115deg,transparent 30%,rgb(255 240 180/.7) 50%,transparent 70%);background-size:auto,250% 250%;background-position:0 0,var(--mx) var(--my);mix-blend-mode:overlay;opacity:.7}
+/* Mastered: moving prism rim + stamp */
+.mastered .face::before{content:'';position:absolute;inset:-.8cqw;border-radius:5cqw;background:conic-gradient(from var(--a,0deg),#ff6b6b,#ffd93d,#6bffb0,#5cc8ff,#c98bff,#ff6b6b);z-index:-1;animation:spin 4s linear infinite}
+.fullart.mastered .face::before{z-index:0}
+@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes spin{to{--a:360deg}}
+.mstamp{position:absolute;z-index:5;right:4cqw;top:44%;transform:rotate(-12deg);font:800 4cqw/1 'Barlow Condensed',sans-serif;color:#fff;background:linear-gradient(90deg,#ff6b6b,#ffd93d,#6bffb0,#5cc8ff);padding:1cqw 2cqw;border-radius:1cqw;box-shadow:0 .6cqw 1.4cqw rgb(0 0 0/.5)}
+/* Idle sway so foil moves on phones without touching */
+@keyframes sway{0%,100%{--mx:20%;--my:25%}50%{--mx:80%;--my:75%}}
+.tcg:not(.live):is(.foil,.r-R,.r-L,.r-S) .face{animation:sway 7s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.tcg .face,.mastered .face::before{animation:none!important}}
+
+/* ---- Card back ---- */
+.back .face{background:radial-gradient(circle at 50% 45%,#16424f,#0a1a20 60%,#05090b);display:flex;align-items:center;justify-content:center}
+.cb{position:relative;width:100%;height:100%;border:1.4cqw solid #c9a24a;border-radius:3cqw;display:flex;flex-direction:column;align-items:center;justify-content:center;background:repeating-conic-gradient(from 0deg at 50% 45%,rgb(24 198 217/.07) 0 6deg,transparent 6deg 12deg)}
+.cb-ring{position:absolute;width:62cqw;height:62cqw;border-radius:50%;top:20%;border:1.6cqw solid #18c6d9;box-shadow:0 0 4cqw #18c6d9,inset 0 0 4cqw #18c6d9;opacity:.8}
+.cb-logo{position:relative;font:800 11cqw/1 'Barlow Condensed',sans-serif;color:#f4f2ec;letter-spacing:.4cqw;text-shadow:0 .6cqw 0 #000}
+.cb-logo span{color:#18c6d9;margin:0 1cqw}
+.cb-sub{position:relative;margin-top:2cqw;font:700 3.4cqw/1 'Barlow Condensed',sans-serif;color:#c9a24a;letter-spacing:1cqw}
+.back.hint-R .face{box-shadow:0 0 6cqw 2cqw #5cc8ff}
+.back.hint-L .face{box-shadow:0 0 8cqw 4cqw #ffb347;animation:shake .5s ease-in-out infinite}
+@keyframes shake{0%,100%{transform:rotate(0)}25%{transform:rotate(-1.5deg)}75%{transform:rotate(1.5deg)}}
